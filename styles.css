@@ -4,22 +4,18 @@ body{
     font-family: 'Manrope', sans-serif;
     font-size: 15px;
     color: hsl(225, 20%, 60%);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: hsl(230, 100%, 99%) url("./images/bg-pattern.svg") no-repeat;
 }
 .main{
     width: 85vw;
     max-width: 34rem;
+    margin: 4rem auto;
 }
 .head{
     text-align: center;
     color: hsl(227, 35%, 25%);
     background: url("./images/pattern-circles.svg") no-repeat center;
-    padding: 2rem 0;
+    padding: 2.25rem 0;
 }
 .heading{
     font-size: 1.9em;
@@ -74,6 +70,7 @@ body{
     background: linear-gradient(to right,
                              hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%) 50%,
                              hsl(224, 65%, 95%) 50%, hsl(224, 65%, 95%) 100%);
+    border-radius: 5px;
 }
 .slider::-webkit-slider-thumb{
     -webkit-appearance: none;
@@ -92,7 +89,7 @@ body{
     opacity: 0.7;
 }
 .slider::-webkit-slider-thumb:active{
-    background-color: hsl(174, 86%, 45%);
+    background-color: hsl(174, 86%, 35%);
     opacity: 1;
 }
 .toggle-button{
@@ -104,10 +101,11 @@ body{
     display: grid;
     grid-template-columns: 5fr 1fr 5fr;
     align-items: center;
-    margin: 2rem 0 0;
+    margin: 2rem -1rem 0;
     font: 0.6em;
+    gap: 1rem;
 }
-.duration{
+.duration:first-child{
     text-align: right;
 }
 .duration span{
@@ -116,7 +114,56 @@ body{
     border-radius: 10px;
     padding: 0 5px;
     font-size: 0.75em;
-    margin-left: 10px;
+    margin-left: 5px;
+}
+.toggle-button{
+    width: 40px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+#checkbox{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.toggler{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: hsl(223, 50%, 87%);
+    border-radius: 12px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.toggler::before{
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: hsl(0, 0%, 100%);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.toggler:hover{
+    background-color: hsl(174, 86%, 45%);
+}
+#checkbox:checked + .toggler::before{
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+.desktop{
+    display: inline-block;
+}
+.mobile{
+    display: none;
 }
 .features-section{
     display: grid;
@@ -147,4 +194,62 @@ body{
     font-size: 0.85em;
     border-radius: 20px;
     cursor: pointer;
+}
+@media (max-width: 425px){  
+    body{
+        font-size: 13px;
+    }
+    .main{
+        margin: 3rem auto;
+    }
+    .heading{
+        font-size: 1.5em;
+    }
+    .description{
+        width: 70%;
+        margin: auto;
+    }
+    .pricing-operator{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .pricing-section, .features-section{
+        padding: 1.5rem 2rem;
+    }
+    .slider{
+        order: 2;
+        width: 100%;
+    }
+    .views{
+        order: 1;
+    }
+    .rate{
+        order: 3;
+    }
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: inline-block;
+    }
+    .duration-selector{
+        gap: 0.5rem;
+        margin: 0 -2rem;
+    }
+    .features-section{
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .features{
+        align-items: center;
+        gap: 1rem;
+    }
+    .button{
+        width:40%;
+        text-align: center;
+        margin: 1rem auto 0;
+    }
 }

@@ -18,15 +18,16 @@
       <div class="pricing-section">
         <div class="pricing-operator">
           <p class="views"><span class="view-count">100k</span> Pageviews</p>
-          <p class="rate"><span class="rate-count">$16.00</span> /month</p>
-          <input type="range" name="slider" min="1" max="100" value="50" id="slider" class="slider">
+          <p class="rate"><span class="rate-count">$16.00</span> <span class="d">/month</span></p>
+          <input type="range" name="slider" min="0" max="100" value="50" step="10" class="slider">
         </div>
         <div class="duration-selector">
           <p class="duration">Monthly Billing</p>
-          <div class="toggle-button">
-            h
-          </div>
-          <p class="duration">Yearly Billing<span>25% discount</span></p>
+          <label class="toggle-button">
+            <input type="checkbox" id="checkbox">
+            <span class="toggler"></span>
+          </label>
+          <p class="duration">Yearly Billing<span class="desktop">25% discount</span><span class="mobile">-25%</span></p>
         </div>
       </div>
       <div class="features-section">
